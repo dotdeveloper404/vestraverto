@@ -5,22 +5,14 @@
                 <div class="row align-items-center">
                     <form class="form-inline search-form">
                         <div class="form-group">
-                            <input
-                                class="form-control-plaintext"
-                                type="search"
-                                placeholder="Search.."
-                            />
+                            <input type="search" class="form-control-plaintext" placeholder="Search..">
                             <div class="icon-close close-search"></div>
                         </div>
                     </form>
                     <div class="col-md-6">
                         <div class="media left">
                             <div class="media-left mr-3">
-                                <div
-                                    data-toggle="modal"
-                                    data-target="#groupUsersModalCenter"
-                                    class="profile online"
-                                >
+                                <div data-toggle="modal" data-target="#groupUsersModalCenter" class="profile online">
                                     <avatar
                                         :size="60"
                                         :rounded="false"
@@ -38,7 +30,7 @@
                                     <li>
                                         <a
                                             class="icon-btn btn-light search search-right"
-                                            href="#"
+                                            href="javascript:;"
                                         >
                                             <i data-feather="search"></i
                                         ></a>
@@ -58,7 +50,7 @@
                                     <li>
                                         <a
                                             class="icon-btn btn-light button-effect mobile-sidebar"
-                                            href="#"
+                                            href="javascript:;"
                                             ><i data-feather="chevron-left"></i
                                         ></a>
                                     </li>
@@ -74,7 +66,7 @@
                                     data-toggle="modal"
                                     data-target="#inviteUserModalCenter"
                                     class="icon-btn btn-sm pull-right add-grbtn outside"
-                                    href="#"
+                                    href="javascript:;"
                                     data-tippy-content="Add User"
                                     ><i data-feather="plus"></i
                                 ></a>
@@ -82,7 +74,7 @@
                             <div class="">
                                 <a
                                     class="icon-btn btn-light button-effect apps-toggle"
-                                    href="#"
+                                    href="javascript:;"
                                     data-tippy-content="All Apps"
                                     ><i class="ti-layout-grid2"></i
                                 ></a>
@@ -133,7 +125,7 @@
                                                 <div class="msg-dropdown">
                                                     <ul>
                                                         <li>
-                                                            <a href="#"
+                                                            <a href="javascript:;"
                                                                 ><i
                                                                     class="fa fa-share"
                                                                 ></i
@@ -141,7 +133,7 @@
                                                             >
                                                         </li>
                                                         <li>
-                                                            <a href="#"
+                                                            <a href="javascript:;"
                                                                 ><i
                                                                     class="fa fa-clone"
                                                                 ></i
@@ -149,7 +141,7 @@
                                                             >
                                                         </li>
                                                         <li>
-                                                            <a href="#"
+                                                            <a href="javascript:;"
                                                                 ><i
                                                                     class="fa fa-star-o"
                                                                 ></i
@@ -157,7 +149,7 @@
                                                             >
                                                         </li>
                                                         <li>
-                                                            <a href="#"
+                                                            <a href="javascript:;"
                                                                 ><i
                                                                     class="ti-trash"
                                                                 ></i
@@ -175,475 +167,6 @@
                     </li>
                 </ul>
             </div>
-
-            <!-- <div class="contact-chat">
-                <ul class="chatappend">
-                    <li class="sent">
-                        <div class="media">
-                            <div class="profile mr-4">
-                                <img
-                                    class="bg-img"
-                                    src="/theme/assets/images/contact/2.jpg"
-                                    alt="Avatar"
-                                />
-                            </div>
-                            <div class="media-body">
-                                <div class="contact-name">
-                                    <h5>Josephin water</h5>
-                                    <h6>01:35 AM</h6>
-                                    <ul class="msg-box">
-                                        <li class="msg-setting-main">
-                                            <h5>
-                                                Hi I am Josephin, can you help
-                                                me to find best chat app?.
-                                            </h5>
-                                            <div class="msg-dropdown-main">
-                                                <div class="msg-setting">
-                                                    <i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="msg-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-share"
-                                                                ></i
-                                                                >forward</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-clone"
-                                                                ></i
-                                                                >copy</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-star-o"
-                                                                ></i
-                                                                >rating</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="ti-trash"
-                                                                ></i
-                                                                >delete</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="msg-setting-main">
-                                            <h5>
-                                                it should from elite auther
-                                                &#128519;
-                                            </h5>
-                                            <div
-                                                class="badge badge-success sm ml-2"
-                                            >
-                                                R
-                                            </div>
-                                            <div class="msg-dropdown-main">
-                                                <div class="msg-setting">
-                                                    <i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="msg-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-share"
-                                                                ></i
-                                                                >forward</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-clone"
-                                                                ></i
-                                                                >copy</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-star-o"
-                                                                ></i
-                                                                >rating</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="ti-trash"
-                                                                ></i
-                                                                >delete</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="replies">
-                        <div class="media">
-                            <div class="profile mr-4">
-                                <img
-                                    class="bg-img"
-                                    src="/theme/assets/images/avtar/1.jpg"
-                                    alt="Avatar"
-                                />
-                            </div>
-                            <div class="media-body">
-                                <div class="contact-name">
-                                    <h5>Alan josheph</h5>
-                                    <h6>01:40 AM</h6>
-                                    <ul class="msg-box">
-                                        <li class="msg-setting-main">
-                                            <div class="msg-dropdown-main">
-                                                <div class="msg-setting">
-                                                    <i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="msg-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-share"
-                                                                ></i
-                                                                >forward</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-clone"
-                                                                ></i
-                                                                >copy</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-star-o"
-                                                                ></i
-                                                                >rating</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="ti-trash"
-                                                                ></i
-                                                                >delete</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <h5>
-                                                Sure, chitchat is best theme for
-                                                chating project, you can it
-                                                check<a
-                                                    class="ml-1"
-                                                    href="https://themeforest.net/user/pixelstrap/portfolio"
-                                                    target="_blank"
-                                                    >here.</a
-                                                >
-                                            </h5>
-                                        </li>
-                                        <li class="msg-setting-main">
-                                            <div class="msg-dropdown-main">
-                                                <div class="msg-setting">
-                                                    <i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="msg-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-share"
-                                                                ></i
-                                                                >forward</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-clone"
-                                                                ></i
-                                                                >copy</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-star-o"
-                                                                ></i
-                                                                >rating</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="ti-trash"
-                                                                ></i
-                                                                >delete</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <div class="document">
-                                                <i
-                                                    class="fa fa-file-excel-o font-primary"
-                                                ></i>
-                                                <div class="details">
-                                                    <h5>Document.xlsx</h5>
-                                                    <h6>25mb Seprate file</h6>
-                                                </div>
-                                                <div class="icon-btns">
-                                                    <a
-                                                        class="icon-btn btn-outline-light"
-                                                        href="assets/doc/Document.xlsx"
-                                                        target="_blank"
-                                                        ><i
-                                                            data-feather="download"
-                                                        >
-                                                        </i
-                                                    ></a>
-                                                </div>
-                                            </div>
-                                            <div
-                                                class="badge badge-dark sm ml-2"
-                                            >
-                                                D
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="sent">
-                        <div class="media">
-                            <div class="profile mr-4">
-                                <img
-                                    class="bg-img"
-                                    src="/theme/assets/images/contact/2.jpg"
-                                    alt="Avatar"
-                                />
-                            </div>
-                            <div class="media-body">
-                                <div class="contact-name">
-                                    <h5>Josephin water</h5>
-                                    <h6>01:42 AM</h6>
-                                    <ul class="msg-box">
-                                        <li class="msg-setting-main">
-                                            <h5>
-                                                I think it's best for my
-                                                project.
-                                            </h5>
-                                            <div class="msg-dropdown-main">
-                                                <div class="msg-setting">
-                                                    <i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="msg-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-share"
-                                                                ></i
-                                                                >forward</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-clone"
-                                                                ></i
-                                                                >copy</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-star-o"
-                                                                ></i
-                                                                >rating</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="ti-trash"
-                                                                ></i
-                                                                >delete</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                        <li class="msg-setting-main">
-                                            <ul class="auto-gallery">
-                                                <li>
-                                                    <img
-                                                        class="bg-img"
-                                                        src="/theme/assets/images/media/1.jpg"
-                                                        alt="Avatar"
-                                                    />
-                                                </li>
-                                                <li>
-                                                    <img
-                                                        class="bg-img"
-                                                        src="/theme/assets/images/media/2.jpg"
-                                                        alt="Avatar"
-                                                    />
-                                                </li>
-                                                <li>
-                                                    <img
-                                                        class="bg-img"
-                                                        src="/theme/assets/images/media/3.jpg"
-                                                        alt="Avatar"
-                                                    />
-                                                </li>
-                                            </ul>
-                                            <div
-                                                class="badge badge-danger sm ml-2"
-                                            ></div>
-                                            <div
-                                                class="badge badge-outline-primary refresh sm ml-2"
-                                            >
-                                                <i data-feather="rotate-cw"></i>
-                                            </div>
-                                            <div class="msg-dropdown-main">
-                                                <div class="msg-setting">
-                                                    <i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="msg-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-share"
-                                                                ></i
-                                                                >forward</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-clone"
-                                                                ></i
-                                                                >copy</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-star-o"
-                                                                ></i
-                                                                >rating</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="ti-trash"
-                                                                ></i
-                                                                >delete</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                    <li class="replies">
-                        <div class="media">
-                            <div class="profile mr-4">
-                                <img
-                                    class="bg-img"
-                                    src="/theme/assets/images/avtar/1.jpg"
-                                    alt="Avatar"
-                                />
-                            </div>
-                            <div class="media-body">
-                                <div class="contact-name">
-                                    <h5>Alan josheph</h5>
-                                    <h6>01:45 AM</h6>
-                                    <ul class="msg-box">
-                                        <li class="msg-setting-main">
-                                            <div class="msg-dropdown-main">
-                                                <div class="msg-setting">
-                                                    <i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="msg-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-share"
-                                                                ></i
-                                                                >forward</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-clone"
-                                                                ></i
-                                                                >copy</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="fa fa-star-o"
-                                                                ></i
-                                                                >rating</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a href="#"
-                                                                ><i
-                                                                    class="ti-trash"
-                                                                ></i
-                                                                >delete</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                            <h5>
-                                                If you have any other query then
-                                                feel free to ask us.
-                                            </h5>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </li>
-                </ul>
-            </div> -->
         </div>
 
         <div
@@ -673,7 +196,7 @@
                 <div class="dot-btn dot-primary mr-3">
                     <a
                         class="icon-btn btn-outline-primary button-effect toggle-emoji"
-                        href="#"
+                        href="javascript:;"
                         ><i data-feather="smile"></i
                     ></a>
                 </div>
@@ -684,16 +207,6 @@
                         @click.prevent="showAttachment = !showAttachment"
                         ><i class="fa fa-plus"></i
                     ></a>
-                    <!-- <div class="contact-poll-content"> -->
-                    <!-- <ul>
-                          
-                            <li>
-                                <a href="#"
-                                    ><i data-feather="clipboard"></i>Document</a
-                                >
-                            </li>
-                        </ul> -->
-                    <!-- </div> -->
                 </div>
                 <input
                     class="setemoj"
@@ -702,11 +215,8 @@
                     v-model="message"
                     placeholder="Write your message..."
                     @keyup.enter="sendMessage()"
-                /><a
-                    class="icon-btn btn-outline-primary button-effect mr-3 ml-3"
-                    href="#"
-                    ><i data-feather="mic"> </i
-                ></a>
+                />
+                <a href="javascript:;" class="icon-btn btn-outline-primary button-effect mr-3 ml-3"><i data-feather="mic"></i></a>
                 <button
                     type="button"
                     @click.prevent="sendMessage()"
@@ -783,364 +293,6 @@
                             <li>&#128574;</li>
                             <li>&#128576;</li>
                             <li>&#128579;</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="sticker-contain">
-                    <div class="sticker-sub-contain custom-scroll">
-                        <ul>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/1.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/2.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/3.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/3.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/4.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/5.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/6.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/7.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/8.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/9.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/10.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/11.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/12.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/13.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/14.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/15.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/16.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/17.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/18.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/19.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/20.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/21.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/22.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/23.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/24.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/25.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/26.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/27.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/28.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/29.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/30.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/31.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/32.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/33.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/34.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/35.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/36.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/37.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/38.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/39.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/40.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/41.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/42.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
-                            <li>
-                                <a href="#"
-                                    ><img
-                                        class="img-fluid"
-                                        src="/theme/assets/images/sticker/43.gif"
-                                        alt="sticker"
-                                /></a>
-                            </li>
                         </ul>
                     </div>
                 </div>

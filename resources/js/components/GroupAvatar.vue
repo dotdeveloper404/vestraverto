@@ -10,7 +10,6 @@
 import Avatar from "vue-avatar";
 
 export default {
-    // props: ["name", "size", "rounded"],
     props: {
         name: {
             type: String
