@@ -573,6 +573,7 @@
         $("." + active_class).addClass("active");
     });
     $(".sidebar-top  a").on("click", function() {
+        $(".dynemic-sidebar").removeClass("anim-none");
         $(".sidebar-top  a").removeClass("active");
         $(this).addClass("active");
         $(".dynemic-sidebar").removeClass("active");

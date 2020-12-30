@@ -1,5 +1,5 @@
 <aside class="chitchat-left-sidebar left-disp">
-    <div class="recent-default dynemic-sidebar active">
+    <div class="recent-default dynemic-sidebar active anim-none">
         <div class="recent">
             <div class="theme-title">
                 <div class="media">
