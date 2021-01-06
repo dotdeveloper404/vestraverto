@@ -5,14 +5,22 @@
                 <div class="row align-items-center">
                     <form class="form-inline search-form">
                         <div class="form-group">
-                            <input type="search" class="form-control-plaintext" placeholder="Search..">
+                            <input
+                                type="search"
+                                class="form-control-plaintext"
+                                placeholder="Search.."
+                            />
                             <div class="icon-close close-search"></div>
                         </div>
                     </form>
                     <div class="col-md-6">
                         <div class="media left">
                             <div class="media-left mr-3">
-                                <div data-toggle="modal" data-target="#groupUsersModalCenter" class="profile online">
+                                <div
+                                    data-toggle="modal"
+                                    data-target="#groupUsersModalCenter"
+                                    class="profile online"
+                                >
                                     <avatar
                                         :size="60"
                                         :rounded="false"
@@ -125,7 +133,8 @@
                                                 <div class="msg-dropdown">
                                                     <ul>
                                                         <li>
-                                                            <a href="javascript:;"
+                                                            <a
+                                                                href="javascript:;"
                                                                 ><i
                                                                     class="fa fa-share"
                                                                 ></i
@@ -133,7 +142,8 @@
                                                             >
                                                         </li>
                                                         <li>
-                                                            <a href="javascript:;"
+                                                            <a
+                                                                href="javascript:;"
                                                                 ><i
                                                                     class="fa fa-clone"
                                                                 ></i
@@ -141,7 +151,8 @@
                                                             >
                                                         </li>
                                                         <li>
-                                                            <a href="javascript:;"
+                                                            <a
+                                                                href="javascript:;"
                                                                 ><i
                                                                     class="fa fa-star-o"
                                                                 ></i
@@ -149,7 +160,8 @@
                                                             >
                                                         </li>
                                                         <li>
-                                                            <a href="javascript:;"
+                                                            <a
+                                                                href="javascript:;"
                                                                 ><i
                                                                     class="ti-trash"
                                                                 ></i
@@ -216,7 +228,11 @@
                     placeholder="Write your message..."
                     @keyup.enter="sendMessage()"
                 />
-                <a href="javascript:;" class="icon-btn btn-outline-primary button-effect mr-3 ml-3"><i data-feather="mic"></i></a>
+                <a
+                    href="javascript:;"
+                    class="icon-btn btn-outline-primary button-effect mr-3 ml-3"
+                    ><i data-feather="mic"></i
+                ></a>
                 <button
                     type="button"
                     @click.prevent="sendMessage()"
@@ -303,6 +319,7 @@
 
 <script>
 import Avatar from "vue-avatar";
+import VueRouter from "vue-router";
 import moment from "moment";
 import vue2Dropzone from "vue2-dropzone";
 import "vue2-dropzone/dist/vue2Dropzone.min.css";
@@ -310,7 +327,8 @@ import "vue2-dropzone/dist/vue2Dropzone.min.css";
 export default {
     components: {
         Avatar,
-        Dropzone: vue2Dropzone
+        Dropzone: vue2Dropzone,
+        VueRouter
     },
     props: {
         group: {
@@ -325,6 +343,7 @@ export default {
         return {
             groupData: [],
             page: 1,
+            channel: null,
             messages: [],
             message: null,
             showAttachment: false,
@@ -421,12 +440,120 @@ export default {
 
                 this.messages = groups;
             }
+
+            // this.channel = window.pusher.subscribe(
+            //     `presence-${this.group.uuid}`
+            // );
+
+            // this.channel.bind("pusher:subscription_succeeded", members => {
+            //     console.log(members);
+            // });
+
+            // this.channel.bind("pusher:member_added", member => {
+            //     // console.log(member);
+            // });
+
+            // this.channel.bind("pusher:member_removed", member => {
+            //     // console.log(member);
+            // });
+
+            // this.channel.bind("new.message", ({ data }) => {
+            //     if (data.message.user_id !== this.user.id) {
+            //         let message = data.message;
+            //         let unix = moment(message.created_at).unix();
+            //         this.messages[
+            //             moment(unix * 1000).format() +
+            //                 "_" +
+            //                 message.user_id +
+            //                 "_" +
+            //                 message.user.name
+            //         ] = [message];
+            //         // this.messages.push(data.message);
+            //         $(".messages").animate(
+            //             { scrollTop: $(document).height() },
+            //             "fast"
+            //         );
+            //     }
+            // });
         }
+        // listenForNewMessage() {
+        //     window.Echo.private(`group.${this.group.uuid}`).listen(
+        //         "MessageProcessed",
+        //         data => {
+        //             console.log("test");
+
+        //             if (data.message.user_id !== this.user.id) {
+        //                 let message = data.message;
+        //                 let unix = moment(message.created_at).unix();
+        //                 this.messages[
+        //                     moment(unix * 1000).format() +
+        //                         "_" +
+        //                         message.user_id +
+        //                         "_" +
+        //                         message.user.name
+        //                 ] = [message];
+        //                 // this.messages.push(data.message);
+        //                 $(".messages").animate(
+        //                     { scrollTop: $("document").height() },
+        //                     "fast"
+        //                 );
+        //             }
+        //         }
+        //     );
+        // }
     },
+    // beforeRouteUpdate(to, from, next) {
+    //     this.channel.unbind("new.message");
+    //     next();
+    // },
     mounted() {
         this.loadGroupMessages();
+
+        // this.listenForNewMessage();
+
+        window.Echo.join(`group.${this.group.uuid}`)
+            .here(users => {
+                console.log(users);
+            })
+            .joining(user => {
+                console.log(user.name);
+            })
+            .leaving(user => {
+                console.log(user.name);
+            })
+            .listen(
+                //  "MessageProcessed",
+                //"App\\Events\\MessageProcessed",
+                ".new-message",
+                function(data) {
+                    console.log("abcdahahaha");
+
+                    if (data.message.user_id !== this.user.id) {
+                        let message = data.message;
+                        let unix = moment(message.created_at).unix();
+                        this.messages[
+                            moment(unix * 1000).format() +
+                                "_" +
+                                message.user_id +
+                                "_" +
+                                message.user.name
+                        ] = [message];
+                        // this.messages.push(data.message);
+                        $(".messages").animate(
+                            { scrollTop: $("document").height() },
+                            "fast"
+                        );
+                    }
+                }
+            );
+
         // this.groupData = this.group;
     }
+    // watch: {
+    //     "$route.params.group": function(group) {
+    //         this.loadGroupMessages();
+    //     }
+    // }
 };
 </script>
 

@@ -26,7 +26,9 @@ Route::get('logout', function () {
 
 Auth::routes();
 
+
 Route::resource('group', 'GroupController')->middleware('auth');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/group/{uuid}/messages', 'Api\MessageController@group_messages')->middleware('auth');
@@ -36,6 +38,8 @@ Route::post('/group/{uuid}/invitation', 'GroupController@post_accept_invitation'
 
 Route::post('/group/{uuid}/invite', 'GroupController@invite')->name('group.invite')->middleware('auth');
 
+Route::post('/authorize_group', 'Api\MessageController@authorize_group')->name('authorize_group')->middleware('auth');
 
 Route::get('/messenger/{uuid}/group', 'MessengerController@group')->name('messenger.group')->middleware('auth');
+
 Route::get('/messenger', 'MessengerController@index')->name('messenger')->middleware('auth');

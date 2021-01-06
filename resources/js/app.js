@@ -8,6 +8,29 @@ require("./bootstrap");
 
 window.Vue = require("vue");
 
+// window.pusher = new Pusher("c1cbf8607a27105debdf", {
+//     cluster: "eu"
+// });
+
+// window.Pusher = require("pusher-js");
+
+// window.Echo = new Echo({
+//     broadcaster: "pusher",
+//     key: "c1cbf8607a27105debdf",
+//     cluster: "eu",
+//     encrypted: false
+// });
+
+// window.pusher = new Pusher("c1cbf8607a27105debdf", {
+//     cluster: "eu",
+//     authEndpoint: `${process.env.VUE_APP_API_URL}/authorize`,
+//     auth: {
+//         headers: {
+//             Authorization: `Bearer ${store.state.token}`
+//         }
+//     }
+// });
+
 /**
  * The following block of code may be used to automatically register your
  * Vue components. It will recursively scan this directory for the Vue

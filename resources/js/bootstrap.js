@@ -23,9 +23,38 @@ window.axios = require("axios");
 
 window.axios.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
+import Echo from "laravel-echo";
+
+window.Pusher = require("pusher-js");
+
+window.Pusher.logToConsole = true;
+
+window.Echo = new Echo({
+    broadcaster: "pusher",
+    key: "45eb778181b54f8032c2",
+    cluster: "eu",
+    encrypted: true
+    // authEndpoint: "/broadcasting/auth"
+});
+
+//import Pusher from "pusher-js";
+
+// window.pusher = new Pusher("c1cbf8607a27105debdf", {
+// cluster: "eu"
+// authEndpoint: `http://vestraverto.test/authorize_group`,
+// auth: {
+//     headers: {
+//         "X-CSRF-Token": document
+//             .querySelector('meta[name="csrf-token"]')
+//             .getAttribute("content")
+//         //Authorization: `Bearer ${store.state.token}`
+//     }
+// }
+// });
+
 /**
- * Echo exposes an expressive API for subscribing to channels and listening
  * for events that are broadcast by Laravel. Echo and event broadcasting
+ * Echo exposes an expressive API for subscribing to channels and listening
  * allows your team to easily build robust real-time web applications.
  */
 

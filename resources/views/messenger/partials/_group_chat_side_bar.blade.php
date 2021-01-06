@@ -55,7 +55,7 @@
                         <h4>Search Group</h4>
                     </div>
                     <div class="media-body text-right">
-                        <a href="javascript:;" class="icon-btn btn-outline-light btn-sm search contact-search"> 
+                        <a href="javascript:;" class="icon-btn btn-outline-light btn-sm search contact-search">
                             <i data-feather="search"></i>
                         </a>
                         <form class="form-inline search-form">
@@ -64,7 +64,8 @@
                                 <div class="icon-close close-search"></div>
                             </div>
                         </form>
-                        <a class="icon-btn btn-primary btn-fix chat-cont-toggle outside" data-toggle="modal" data-target="#groupModalCenter">
+                        <a class="icon-btn btn-primary btn-fix chat-cont-toggle outside" data-toggle="modal"
+                            data-target="#groupModalCenter">
                             <i data-feather="plus"></i>
                         </a>
                     </div>
@@ -75,45 +76,51 @@
                     <div class="tab-pane fade show active" id="chat" role="tabpanel" aria-labelledby="chat-tab">
                         <div class="theme-tab">
                             <div class="tab-content" id="myTabContent1">
-                                <div class="tab-pane fade show active" id="group" role="tabpanel" aria-labelledby="group-tab">
+                                <div class="tab-pane fade show active" id="group" role="tabpanel"
+                                    aria-labelledby="group-tab">
                                     <ul class="group-main">
                                         @foreach($groups as $group)
-                                            <li {{$group->uuid == $uuid ? 'class=active' : ''}} data-to="group_chat">
-                                                <a href="{{route('messenger.group',$group->uuid)}}">
-                                                    <div class="group-box">
-                                                        <div class="profile">
-                                                            <group-avatar :rounded=false :size=60 name="{{$group->name}}"></group-avatar>
-                                                        </div>
-                                                        <div class="details">
-                                                            <h5>{{$group->name}}</h5>
-                                                            <h6>{{ \Illuminate\Support\Str::limit($group->latest_message['message'],40) }}&nbsp;</h6>
-                                                        </div>
-                                                        <div class="date-status">
-                                                            <ul class="grop-icon">
-                                                                @foreach($group->users as $user)
-                                                                    @if($loop->index < 3) 
-                                                                        <li>
-                                                                            <span class="group-tp" data-tippy-content="{{ $user->name }}">
-                                                                                <group-avatar :rounded=true :size=23 class="user-avatar" name="{{ $user->name }}"></group-avatar>
-                                                                            </span>
-                                                                        </li>
-                                                                    @endif
-                                                                @endforeach
-                                                                <li>{{count($group->users) - 3 > 3 ?   count($group->users) - 3 .'more' : ''  }}</li>
-                                                            </ul>
-                                                        </div>
+                                        <li {{$group->uuid == $uuid ? 'class=active' : ''}} data-to="group_chat">
+                                            <a href="{{route('messenger.group',$group->uuid)}}">
+                                                <div class="group-box">
+                                                    <div class="profile">
+                                                        <group-avatar :rounded=false :size=60 name="{{$group->name}}">
+                                                        </group-avatar>
                                                     </div>
-                                                </a>
-                                            </li>
+                                                    <div class="details">
+                                                        <h5>{{$group->name}}</h5>
+                                                        <h6>{{ \Illuminate\Support\Str::limit($group->latest_message['message'] ??  '',40)  }}&nbsp;
+                                                        </h6>
+                                                    </div>
+                                                    <div class="date-status">
+                                                        <ul class="grop-icon">
+                                                            @foreach($group->users as $user)
+                                                            @if($loop->index < 3) <li>
+                                                                <span class="group-tp"
+                                                                    data-tippy-content="{{ $user->name }}">
+                                                                    <group-avatar :rounded=true :size=23
+                                                                        class="user-avatar" name="{{ $user->name }}">
+                                                                    </group-avatar>
+                                                                </span>
+                                        </li>
+                                        @endif
                                         @endforeach
+                                        <li>{{count($group->users) - 3 > 3 ?   count($group->users) - 3 .'more' : ''  }}
+                                        </li>
                                     </ul>
                                 </div>
                             </div>
+                            </a>
+                            </li>
+                            @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+    </div>
     </div>
     <div class="document-tab dynemic-sidebar" id="document">
         <div class="theme-title">
@@ -132,7 +139,8 @@
                             <div class="icon-close close-search"></div>
                         </div>
                     </form>
-                    <a href="javascript:;" class="icon-btn btn-outline-light btn-sm close-panel"><i data-feather="x"></i></a>
+                    <a href="javascript:;" class="icon-btn btn-outline-light btn-sm close-panel"><i
+                            data-feather="x"></i></a>
                 </div>
             </div>
         </div>
@@ -198,7 +206,7 @@
                     <h2>Settings</h2>
                     <h4>Change your app setting.</h4>
                 </div>
-                <div class="media-body text-right"> 
+                <div class="media-body text-right">
                     <a href="javascript:;" class="icon-btn btn-outline-light btn-sm close-panel">
                         <i data-feather="x"></i>
                     </a>
@@ -216,10 +224,12 @@
                     <div class="details edit">
                         <form class="form-radious form-sm">
                             <div class="form-group mb-2">
-                                <input type="text" name="username" id="username" class="form-control" value="Josephin water" />
+                                <input type="text" name="username" id="username" class="form-control"
+                                    value="Josephin water" />
                             </div>
                             <div class="form-group mb-0">
-                                <input type="text" name="address" id="address" class="form-control" value="Alabma , USA" />
+                                <input type="text" name="address" id="address" class="form-control"
+                                    value="Alabma , USA" />
                             </div>
                         </form>
                     </div>
@@ -245,10 +255,12 @@
                 </div>
                 <div class="theme-according" id="accordion">
                     <div class="card">
-                        <div class="card-header" id="headingTwo" role="heading" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                        <div class="card-header" id="headingTwo" role="heading" data-toggle="collapse"
+                            data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                             <a href="javascript:;">Security<i class="fa fa-angle-down"></i></a>
                         </div>
-                        <div class="collapse show" id="collapseTwo" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="collapse show" id="collapseTwo" aria-labelledby="headingTwo"
+                            data-parent="#accordion">
                             <div class="card-body">
                                 <div class="media">
                                     <div class="media-body">
@@ -258,12 +270,14 @@
                                         <input type="checkbox" class="js-switch">
                                     </div>
                                 </div>
-                                <p><b>Note: </b>turn on this setting to recive notification when a contact's security code has been changes.</p>
+                                <p><b>Note: </b>turn on this setting to recive notification when a contact's security
+                                    code has been changes.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingOne" role="heading" data-toggle="collapse" data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
+                        <div class="card-header" id="headingOne" role="heading" data-toggle="collapse"
+                            data-target="#collapseOne" aria-expanded="false" aria-controls="collapseOne">
                             <a href="javascript:;">Privacy<i class="fa fa-angle-down"></i></a>
                         </div>
                         <div class="collapse" id="collapseOne" aria-labelledby="headingOne" data-parent="#accordion">
@@ -272,32 +286,38 @@
                                     <li>
                                         <h5>Last seen</h5>
                                         <input type="checkbox" class="js-switch">
-                                        <p><b>Note: </b>turn on this setting to whether your contact can see last seen or not.</p>
+                                        <p><b>Note: </b>turn on this setting to whether your contact can see last seen
+                                            or not.</p>
                                     </li>
                                     <li>
                                         <h5>Profile Photo</h5>
                                         <input type="checkbox" class="js-switch">
-                                        <p><b>Note: </b>turn on this setting to whether your contact can see your profile or not.</p>
+                                        <p><b>Note: </b>turn on this setting to whether your contact can see your
+                                            profile or not.</p>
                                     </li>
                                     <li>
                                         <h5>About</h5>
                                         <input type="checkbox" class="js-switch">
-                                        <p><b>Note: </b>turn on this setting to whether your contact can see about status or not.</p>
+                                        <p><b>Note: </b>turn on this setting to whether your contact can see about
+                                            status or not.</p>
                                     </li>
                                     <li>
                                         <h5>Status</h5>
                                         <input type="checkbox" class="js-switch">
-                                        <p><b>Note: </b>turn on this setting to whether your contact can see your status or not.</p>
+                                        <p><b>Note: </b>turn on this setting to whether your contact can see your status
+                                            or not.</p>
                                     </li>
                                     <li>
                                         <h5>Read receipts</h5>
                                         <input type="checkbox" class="js-switch">
-                                        <p><b>Note: </b>If turn off this option you won't be able to see read recipts from contact. read receipts are always sent for group chats.</p>
+                                        <p><b>Note: </b>If turn off this option you won't be able to see read recipts
+                                            from contact. read receipts are always sent for group chats.</p>
                                     </li>
                                     <li>
                                         <h5>Groups</h5>
                                         <input type="checkbox" class="js-switch" checked>
-                                        <p><b>Note: </b>turn on this setting to whether your contact can add in groups or not.</p>
+                                        <p><b>Note: </b>turn on this setting to whether your contact can add in groups
+                                            or not.</p>
                                     </li>
                                     <li>
                                         <h5>Screen Lock(Require Touch ID)</h5>
@@ -308,10 +328,12 @@
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingThree" role="heading" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        <div class="card-header" id="headingThree" role="heading" data-toggle="collapse"
+                            data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                             <a href="javascript:;">Two Step verification<i class="fa fa-angle-down"></i></a>
                         </div>
-                        <div class="collapse" id="collapseThree" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="collapse" id="collapseThree" aria-labelledby="headingThree"
+                            data-parent="#accordion">
                             <div class="card-body">
                                 <div class="media">
                                     <div class="media-body">
@@ -321,12 +343,14 @@
                                         <input type="checkbox" class="js-switch">
                                     </div>
                                 </div>
-                                <p><b>Note: </b>For added security, enable two-step verifiation, which will require a PIN when registering your phone number with Chitchat again.</p>
+                                <p><b>Note: </b>For added security, enable two-step verifiation, which will require a
+                                    PIN when registering your phone number with Chitchat again.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingFour" role="heading" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                        <div class="card-header" id="headingFour" role="heading" data-toggle="collapse"
+                            data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
                             <a href="javascript:;">Change Number<i class="fa fa-angle-down"></i></a>
                         </div>
                         <div class="collapse" id="collapseFour" aria-labelledby="headingFour" data-parent="#accordion">
@@ -348,30 +372,37 @@
                                     <input class="form-control" type="number" placeholder="" />
                                 </div>
                                 <div class="text-right">
-                                    <a href="javascript:;" class="btn btn-outline-primary button-effect btn-sm">confirm</a>
+                                    <a href="javascript:;"
+                                        class="btn btn-outline-primary button-effect btn-sm">confirm</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingFive" role="heading" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                        <div class="card-header" id="headingFive" role="heading" data-toggle="collapse"
+                            data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
                             <a href="javascript:;">Request account info<i class="fa fa-angle-down"></i></a>
                         </div>
                         <div class="collapse" id="collapseFive" aria-labelledby="headingFive" data-parent="#accordion">
                             <div class="card-body">
-                                <a class="p-0 req-info" id="demo" href="javascript:;" onclick="document.getElementById(&quot;demo&quot;).innerHTML = &quot;Request sent&quot;">Request Info </a>
-                                <p><b>Note: </b>Create a report of your account information and settings, which you can access ot port to another app.</p>
+                                <a class="p-0 req-info" id="demo" href="javascript:;"
+                                    onclick="document.getElementById(&quot;demo&quot;).innerHTML = &quot;Request sent&quot;">Request
+                                    Info </a>
+                                <p><b>Note: </b>Create a report of your account information and settings, which you can
+                                    access ot port to another app.</p>
                             </div>
                         </div>
                     </div>
                     <div class="card">
-                        <div class="card-header" id="headingSix" role="heading" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                        <div class="card-header" id="headingSix" role="heading" data-toggle="collapse"
+                            data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
                             <a href="javascript:;">Delete My account<i class="fa fa-angle-down"></i></a>
                         </div>
                         <div class="collapse" id="collapseSix" aria-labelledby="headingSix" data-parent="#accordion">
                             <div class="card-body">
                                 <a class="p-0 req-info font-danger" href="javascript:;">Delete Account</a>
-                                <p><b>Note: </b>Deleting your account will delete your account info, profile photo, all groups & chat history.</p>
+                                <p><b>Note: </b>Deleting your account will delete your account info, profile photo, all
+                                    groups & chat history.</p>
                             </div>
                         </div>
                     </div>

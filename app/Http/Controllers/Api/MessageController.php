@@ -12,7 +12,9 @@ use Exception;
 use Spatie\Async\Pool;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Broadcast;
 use Laravel\Ui\Presets\React;
+use App\Events\MessageProcessed;
 
 class MessageController extends Controller
 {
@@ -52,34 +54,61 @@ class MessageController extends Controller
 
     public function store(Request $request)
     {
-        $pool = Pool::create();
 
-        $pool->add(function () use ($request) {
+        // $pool = Pool::create();
 
-            $this->message =  Message::create([
-                'group_id' => $request->group_id,
-                'user_id' => auth()->user()->id,
-                'message' => $request->message,
-            ]);
+        // $pool->add(function () use ($request) {
 
-            //$this->message->load('user');
-            //$this->message->load('attachment');
+        //     $this->message =  Message::create([
+        //         'group_id' => $request->group_id,
+        //         'user_id' => auth()->user()->id,
+        //         'message' => $request->message,
+        //     ]);
 
-            $notification = Notification::create([
-                'group_id' => $request->group_id,
-                'user_id' => auth()->user()->id,
-                'message_id' =>  $this->message->id,
-                'is_seen' => 0,
-            ]);
-        })->then(function ($output) {
-            // On success, `$output` is returned by the process or callable you passed to the queue.
-        })->catch(function ($exception) {
-            // When an exception is thrown from within a process, it's caught and passed here.
-        })->timeout(function () {
-            // A process took too long to finish.
-        });
+        //     //$this->message->load('user');
+        //     //$this->message->load('attachment');
 
-        $pool->wait();
+        //     $notification = Notification::create([
+        //         'group_id' => $request->group_id,
+        //         'user_id' => auth()->user()->id,
+        //         'message_id' =>  $this->message->id,
+        //         'is_seen' => 0,
+        //     ]);
+
+        //    // MessageProcessed::dispatch($this->message);
+        //      broadcast(new MessageProcessed($this->message->load('user')));//->toOthers();
+        //     //  event(new MessageProcessed($this->message));
+
+        // })->then(function ($output) {
+        //     // On success, `$output` is returned by the process or callable you passed to the queue.
+        // })->catch(function ($exception) {
+        //     // When an exception is thrown from within a process, it's caught and passed here.
+        // })->timeout(function () {
+        //     // A process took too long to finish.
+        // });
+
+        // $pool->wait();
+
+
+        $this->message =  Message::create([
+            'group_id' => $request->group_id,
+            'user_id' => auth()->user()->id,
+            'message' => $request->message,
+        ]);
+
+        //$this->message->load('user');
+        //$this->message->load('attachment');
+
+        $notification = Notification::create([
+            'group_id' => $request->group_id,
+            'user_id' => auth()->user()->id,
+            'message_id' =>  $this->message->id,
+            'is_seen' => 0,
+        ]);
+
+        // MessageProcessed::dispatch($this->message);
+        broadcast(new MessageProcessed($this->message->load('user')))->toOthers();
+
 
         return response()->json([
             'message' => $this->message->load('user'),
@@ -109,6 +138,19 @@ class MessageController extends Controller
             'messages' => $messages,
         ]);
     }
+
+    public function authorize_group(Request $request)
+    {
+
+        return auth()->user();
+        // Broadcast::channel('new.message', function ($user) {
+        //     return $user;
+        // });
+        // return response()->json([
+        //     'messages' => '123',
+        // ]);
+    }
+
 
     /**
      * Display the specified resource.
