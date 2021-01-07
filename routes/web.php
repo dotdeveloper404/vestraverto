@@ -15,9 +15,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('auth.login');
-});
+// Route::get('/', function () {
+//     return view('auth.login');
+// });
 
 
 Route::get('logout', function () {
@@ -28,8 +28,6 @@ Auth::routes();
 
 
 Route::resource('group', 'GroupController')->middleware('auth');
-
-Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/group/{uuid}/messages', 'Api\MessageController@group_messages')->middleware('auth');
 
@@ -43,3 +41,10 @@ Route::post('/authorize_group', 'Api\MessageController@authorize_group')->name('
 Route::get('/messenger/{uuid}/group', 'MessengerController@group')->name('messenger.group')->middleware('auth');
 
 Route::get('/messenger', 'MessengerController@index')->name('messenger')->middleware('auth');
+
+
+Route::get('/privacy-policy', 'HomeController@privacy_policy')->name('privacy_policy');
+Route::get('/contact-us', 'HomeController@contact_us')->name('contact_us');
+Route::get('/faqs', 'HomeController@faqs')->name('faqs');
+Route::get('/about-us', 'HomeController@about_us')->name('about_us');
+Route::get('/', 'HomeController@index')->name('home');

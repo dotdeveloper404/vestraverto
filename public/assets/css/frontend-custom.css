@@ -1,0 +1,37 @@
+.chat-landing-page h1 {
+    margin-bottom: 15px;
+    background: -webkit-linear-gradient(#ee901c, #fc751d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: calc(18px + (48 - 18) * ((100vw - 320px) / (1920 - 320)));
+}
+
+.downlaod .footer-btn .btn.active {
+    background-image: linear-gradient(145deg, #ee901c 0%, #fc751d 100%);
+    -webkit-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+    color: #fff;
+}
+
+header .landing-header.fixed {
+    background-color: #ffffff !important;
+    -webkit-box-shadow: 0 0 50px rgb(0 0 0 / 10%);
+    box-shadow: 0 0 50px rgb(0 0 0 / 10%);
+    -webkit-transition: all 0.3s ease;
+}
+
+header#home {
+    z-index: 999999;
+}
+
+header .landing-header.fixed .navbar-collapse .navbar-nav .nav-item .nav-link {
+    color: #252125 !important;
+}
+
+.inner-page section {
+    background-image: linear-gradient(145deg, #ee901c 0%, #fc751d 100%);
+}
+
+.landing-page-header header .landing-header.fixed .navbar-collapse .navbar-nav .active .nav-link {
+    color: #ff803c !important;
+}
