@@ -55,59 +55,59 @@ class MessageController extends Controller
     public function store(Request $request)
     {
 
-        // $pool = Pool::create();
+        $pool = Pool::create();
 
-        // $pool->add(function () use ($request) {
+        $pool->add(function () use ($request) {
 
-        //     $this->message =  Message::create([
-        //         'group_id' => $request->group_id,
-        //         'user_id' => auth()->user()->id,
-        //         'message' => $request->message,
-        //     ]);
+            $this->message =  Message::create([
+                'group_id' => $request->group_id,
+                'user_id' => auth()->user()->id,
+                'message' => $request->message,
+            ]);
 
-        //     //$this->message->load('user');
-        //     //$this->message->load('attachment');
+            //$this->message->load('user');
+            //$this->message->load('attachment');
 
-        //     $notification = Notification::create([
-        //         'group_id' => $request->group_id,
-        //         'user_id' => auth()->user()->id,
-        //         'message_id' =>  $this->message->id,
-        //         'is_seen' => 0,
-        //     ]);
+            $notification = Notification::create([
+                'group_id' => $request->group_id,
+                'user_id' => auth()->user()->id,
+                'message_id' =>  $this->message->id,
+                'is_seen' => 0,
+            ]);
 
-        //    // MessageProcessed::dispatch($this->message);
-        //      broadcast(new MessageProcessed($this->message->load('user')));//->toOthers();
-        //     //  event(new MessageProcessed($this->message));
+            // MessageProcessed::dispatch($this->message);
+            broadcast(new MessageProcessed($this->message->load('user')))->toOthers();
+            //  event(new MessageProcessed($this->message));
 
-        // })->then(function ($output) {
-        //     // On success, `$output` is returned by the process or callable you passed to the queue.
-        // })->catch(function ($exception) {
-        //     // When an exception is thrown from within a process, it's caught and passed here.
-        // })->timeout(function () {
-        //     // A process took too long to finish.
-        // });
+        })->then(function ($output) {
+            // On success, `$output` is returned by the process or callable you passed to the queue.
+        })->catch(function ($exception) {
+            // When an exception is thrown from within a process, it's caught and passed here.
+        })->timeout(function () {
+            // A process took too long to finish.
+        });
 
-        // $pool->wait();
+        $pool->wait();
 
 
-        $this->message =  Message::create([
-            'group_id' => $request->group_id,
-            'user_id' => auth()->user()->id,
-            'message' => $request->message,
-        ]);
+        // $this->message =  Message::create([
+        //     'group_id' => $request->group_id,
+        //     'user_id' => auth()->user()->id,
+        //     'message' => $request->message,
+        // ]);
 
-        //$this->message->load('user');
-        //$this->message->load('attachment');
+        // //$this->message->load('user');
+        // //$this->message->load('attachment');
 
-        $notification = Notification::create([
-            'group_id' => $request->group_id,
-            'user_id' => auth()->user()->id,
-            'message_id' =>  $this->message->id,
-            'is_seen' => 0,
-        ]);
+        // $notification = Notification::create([
+        //     'group_id' => $request->group_id,
+        //     'user_id' => auth()->user()->id,
+        //     'message_id' =>  $this->message->id,
+        //     'is_seen' => 0,
+        // ]);
 
-        // MessageProcessed::dispatch($this->message);
-        broadcast(new MessageProcessed($this->message->load('user')))->toOthers();
+        // // MessageProcessed::dispatch($this->message);
+        // broadcast(new MessageProcessed($this->message->load('user')))->toOthers();
 
 
         return response()->json([

@@ -41,6 +41,6 @@ class MessageProcessed implements ShouldBroadcast
      */
     public function broadcastOn()
     {
-        return new PresenceChannel('groups.' . $this->message->group->uuid);
+        return new PresenceChannel('group.' . $this->message->group->uuid);
     }
 }

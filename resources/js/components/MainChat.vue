@@ -523,8 +523,8 @@ export default {
             })
             .listen(
                 //  "MessageProcessed",
-                //"App\\Events\\MessageProcessed",
-                ".new-message",
+                "App\\Events\\MessageProcessed",
+                //".new-message",
                 function(data) {
                     console.log("abcdahahaha");
 
