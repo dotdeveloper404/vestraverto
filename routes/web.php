@@ -26,7 +26,6 @@ Route::get('logout', function () {
 
 Auth::routes();
 
-
 Route::resource('group', 'GroupController')->middleware('auth');
 
 Route::get('/group/{uuid}/messages', 'Api\MessageController@group_messages')->middleware('auth');
