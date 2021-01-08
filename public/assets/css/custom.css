@@ -19,7 +19,11 @@
     background-color: #fff;
 }
 
-.sidebar-active .sidebar-toggle .main-nav.on ~ .chitchat-main.small-sidebar .contact-details {
+.sidebar-active
+    .sidebar-toggle
+    .main-nav.on
+    ~ .chitchat-main.small-sidebar
+    .contact-details {
     width: calc(100vw - 680px) !important;
 }
 
@@ -27,7 +31,11 @@
     width: calc(100vw - 595px) !important;
 }
 
-.sidebar-active .sidebar-toggle .main-nav.on ~ .chitchat-main.small-sidebar .message-input {
+.sidebar-active
+    .sidebar-toggle
+    .main-nav.on
+    ~ .chitchat-main.small-sidebar
+    .message-input {
     width: calc(100% - 590px) !important;
 }
 
@@ -46,8 +54,9 @@
     color: #ffffff !important;
 }
 
-.contact-chat > ul > li.replies, .contact-chat > ul > li.sent {
-    margin-bottom: 30px;
+.contact-chat > ul > li.replies,
+.contact-chat > ul > li.sent {
+    margin-bottom: 0px !important;
 }
 
 .replies .msg-setting-main {
@@ -74,4 +83,65 @@
 
 .anim-none {
     animation: inherit !important;
+}
+
+.contact-chat > ul > li .media .profile {
+    width: 30px;
+    height: 30px;
+}
+
+.contact-chat > ul > li .media .profile .vue-avatar--wrapper {
+    width: 30px !important;
+    height: 30px !important;
+    font-size: 12px !important;
+    line-height: 12px !important;
+}
+
+.contact-chat > ul > li .media .profile .vue-avatar--wrapper span {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-size: 12px !important;
+    line-height: 12px !important;
+    transform: none;
+}
+
+.contact-chat
+    > ul
+    > li
+    .media
+    .media-body
+    .contact-name
+    .msg-box
+    .msg-setting-main
+    h5 {
+    padding: 6px 15px;
+    font-size: 12px;
+}
+
+.contact-chat > ul > li.replies .media .profile {
+    margin-left: 0.7rem !important;
+}
+
+.contact-chat > ul > li.sent .media .profile {
+    margin-right: 0.7rem !important;
+}
+
+.msg-setting-main .msg-dropdown-main {
+    font-size: 15px;
+}
+
+.contact-chat > ul > li .contact-name h5 {
+    font-size: 11px;
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.contact-chat > ul > li .contact-name h6 {
+    font-size: 11px;
+}
+
+.contact-chat > ul > li .contact-name .msg-box {
+    margin-top: 0px !important;
 }

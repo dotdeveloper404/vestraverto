@@ -102,11 +102,11 @@
                         :key="messageIndex"
                     >
                         <div class="media">
-                            <div class="profile mr-4">
+                            <div class="profile">
                                 <avatar
-                                    v-if="messageIndex"
+                                    v-if="++messageIndex"
                                     :username="message.user.name"
-                                    :size="60"
+                                    :size="30"
                                 ></avatar>
                             </div>
                             <div class="media-body">
@@ -119,49 +119,9 @@
                                         <li class="msg-setting-main">
                                             <h5 v-text="message.message"></h5>
                                             <div class="msg-dropdown-main">
-                                                <div class="msg-setting">
-                                                    <i class="ti-more-alt"></i>
-                                                </div>
-                                                <div class="msg-dropdown">
-                                                    <ul>
-                                                        <li>
-                                                            <a
-                                                                href="javascript:;"
-                                                                ><i
-                                                                    class="fa fa-share"
-                                                                ></i
-                                                                >forward</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="javascript:;"
-                                                                ><i
-                                                                    class="fa fa-clone"
-                                                                ></i
-                                                                >copy</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="javascript:;"
-                                                                ><i
-                                                                    class="fa fa-star-o"
-                                                                ></i
-                                                                >rating</a
-                                                            >
-                                                        </li>
-                                                        <li>
-                                                            <a
-                                                                href="javascript:;"
-                                                                ><i
-                                                                    class="ti-trash"
-                                                                ></i
-                                                                >delete</a
-                                                            >
-                                                        </li>
-                                                    </ul>
-                                                </div>
+                                                <a href="javascript:;"
+                                                    ><i class="fa fa-trash"></i
+                                                ></a>
                                             </div>
                                         </li>
                                     </ul>
@@ -369,11 +329,11 @@ export default {
                 group_id: this.group.id
             });
             let messageData = JSON.stringify(data);
-            console.log(data.data);
+            //console.log(data.data);
             // console.log(messageData);
             this.messages.push(data.data);
 
-            $(".messages").animate({ scrollTop: $(document).height() }, "fast");
+            $(".messages").animate({ scrollTop: 100000000 }, 900);
             this.message = null;
 
             if (this.attachments.length > 0) {
@@ -387,10 +347,7 @@ export default {
             );
 
             if (data.messages.data.length > 0) {
-                $(".messages").animate(
-                    { scrollTop: $(document).height() },
-                    "fast"
-                );
+                $(".messages").animate({ scrollTop: 100000000 }, 900);
 
                 this.messages = data.messages.data;
             }
@@ -399,6 +356,8 @@ export default {
 
     mounted() {
         this.loadGroupMessages();
+
+        $(".messages").animate({ scrollTop: 100000000 }, 900);
 
         // this.listenForNewMessage();
 
@@ -422,10 +381,7 @@ export default {
 
                     this.messages.push(data.message);
 
-                    $(".messages").animate(
-                        { scrollTop: $("document").height() },
-                        "fast"
-                    );
+                    $(".messages").animate({ scrollTop: 100000000 }, 900);
                 }
             );
 
