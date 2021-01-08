@@ -2335,14 +2335,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
 
 
 
@@ -2395,7 +2387,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _yield$axios$post, data, message, unix;
+        var _yield$axios$post, data, messageData;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
@@ -2418,11 +2410,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
               case 4:
                 _yield$axios$post = _context.sent;
                 data = _yield$axios$post.data;
-                message = data.message;
-                unix = moment__WEBPACK_IMPORTED_MODULE_3___default()(message.created_at).unix();
-                _this.messages[moment__WEBPACK_IMPORTED_MODULE_3___default()(unix * 1000).format() + "_" + message.user_id + //this.user.id +
-                "_" + message.user.name // this.user.name
-                ] = [message];
+                messageData = JSON.stringify(data);
+                console.log(data.data); // console.log(messageData);
+
+                _this.messages.push(data.data);
+
                 $(".messages").animate({
                   scrollTop: $(document).height()
                 }, "fast");
@@ -2444,7 +2436,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       var _this2 = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
-        var _yield$axios$get, data, formatDate, messages, firstMsg, newMessages, groups;
+        var _yield$axios$get, data;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
           while (1) {
@@ -2461,64 +2453,8 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
                   $(".messages").animate({
                     scrollTop: $(document).height()
                   }, "fast");
-
-                  formatDate = function formatDate(date) {
-                    return moment__WEBPACK_IMPORTED_MODULE_3___default()(date).format();
-                  };
-
-                  messages = data.messages.data;
-                  firstMsg = messages[0];
-                  newMessages = messages.slice(1).reduce(function (acc, m) {
-                    var lastMessages = acc[acc.length - 1];
-                    var lastMsg = lastMessages[lastMessages.length - 1];
-
-                    if (lastMsg.user_id === m.user_id) {
-                      lastMessages.push(m);
-                      acc[acc.length - 1] = lastMessages;
-                    } else {
-                      acc.push([m]);
-                    }
-
-                    return acc;
-                  }, [[firstMsg]]);
-                  groups = newMessages.reduce(function (acc, m) {
-                    var message = m[m.length - 1];
-                    var unix = moment__WEBPACK_IMPORTED_MODULE_3___default()(message.created_at).unix();
-                    acc[moment__WEBPACK_IMPORTED_MODULE_3___default()(unix * 1000).format() + "_" + message.user_id + "_" + message.user.name] = m;
-                    return acc;
-                  }, {});
-                  _this2.messages = groups;
-                } // this.channel = window.pusher.subscribe(
-                //     `presence-${this.group.uuid}`
-                // );
-                // this.channel.bind("pusher:subscription_succeeded", members => {
-                //     console.log(members);
-                // });
-                // this.channel.bind("pusher:member_added", member => {
-                //     // console.log(member);
-                // });
-                // this.channel.bind("pusher:member_removed", member => {
-                //     // console.log(member);
-                // });
-                // this.channel.bind("new.message", ({ data }) => {
-                //     if (data.message.user_id !== this.user.id) {
-                //         let message = data.message;
-                //         let unix = moment(message.created_at).unix();
-                //         this.messages[
-                //             moment(unix * 1000).format() +
-                //                 "_" +
-                //                 message.user_id +
-                //                 "_" +
-                //                 message.user.name
-                //         ] = [message];
-                //         // this.messages.push(data.message);
-                //         $(".messages").animate(
-                //             { scrollTop: $(document).height() },
-                //             "fast"
-                //         );
-                //     }
-                // });
-
+                  _this2.messages = data.messages.data;
+                }
 
               case 5:
               case "end":
@@ -2527,37 +2463,11 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
           }
         }, _callee2);
       }))();
-    } // listenForNewMessage() {
-    //     window.Echo.private(`group.${this.group.uuid}`).listen(
-    //         "MessageProcessed",
-    //         data => {
-    //             console.log("test");
-    //             if (data.message.user_id !== this.user.id) {
-    //                 let message = data.message;
-    //                 let unix = moment(message.created_at).unix();
-    //                 this.messages[
-    //                     moment(unix * 1000).format() +
-    //                         "_" +
-    //                         message.user_id +
-    //                         "_" +
-    //                         message.user.name
-    //                 ] = [message];
-    //                 // this.messages.push(data.message);
-    //                 $(".messages").animate(
-    //                     { scrollTop: $("document").height() },
-    //                     "fast"
-    //                 );
-    //             }
-    //         }
-    //     );
-    // }
-
+    }
   },
-  // beforeRouteUpdate(to, from, next) {
-  //     this.channel.unbind("new.message");
-  //     next();
-  // },
   mounted: function mounted() {
+    var _this3 = this;
+
     this.loadGroupMessages(); // this.listenForNewMessage();
 
     window.Echo.join("group.".concat(this.group.uuid)).here(function (users) {
@@ -2567,19 +2477,16 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     }).leaving(function (user) {
       console.log(user.name);
     }).listen( //  "MessageProcessed",
-    //"App\\Events\\MessageProcessed",
+    // "App\\Events\\MessageProcessed",
     ".new-message", function (data) {
-      console.log("abcdahahaha");
+      // console.log(data.message);
+      console.log(_this3.messages);
 
-      if (data.message.user_id !== this.user.id) {
-        var message = data.message;
-        var unix = moment__WEBPACK_IMPORTED_MODULE_3___default()(message.created_at).unix();
-        this.messages[moment__WEBPACK_IMPORTED_MODULE_3___default()(unix * 1000).format() + "_" + message.user_id + "_" + message.user.name] = [message]; // this.messages.push(data.message);
+      _this3.messages.push(data.message);
 
-        $(".messages").animate({
-          scrollTop: $("document").height()
-        }, "fast");
-      }
+      $(".messages").animate({
+        scrollTop: $("document").height()
+      }, "fast");
     }); // this.groupData = this.group;
   } // watch: {
   //     "$route.params.group": function(group) {
@@ -67466,8 +67373,8 @@ var render = function() {
                 {
                   key: messageIndex,
                   class: {
-                    sent: messageIndex.split("_")[1] != _vm.user.id,
-                    replies: messageIndex.split("_")[1] == _vm.user.id
+                    sent: message.user_id != _vm.user.id,
+                    replies: message.user_id == _vm.user.id
                   }
                 },
                 [
@@ -67478,10 +67385,7 @@ var render = function() {
                       [
                         messageIndex
                           ? _c("avatar", {
-                              attrs: {
-                                username: messageIndex.split("_")[2],
-                                size: 60
-                              }
+                              attrs: { username: message.user.name, size: 60 }
                             })
                           : _vm._e()
                       ],
@@ -67491,37 +67395,24 @@ var render = function() {
                     _c("div", { staticClass: "media-body" }, [
                       _c("div", { staticClass: "contact-name" }, [
                         _c("h5", {
-                          domProps: {
-                            textContent: _vm._s(messageIndex.split("_")[2])
-                          }
+                          domProps: { textContent: _vm._s(message.user.name) }
                         }),
                         _vm._v(" "),
                         _c("h6", {
                           domProps: {
-                            textContent: _vm._s(
-                              _vm.newDate(messageIndex.split("_")[0])
-                            )
+                            textContent: _vm._s(_vm.newDate(message.created_at))
                           }
                         }),
                         _vm._v(" "),
-                        _c(
-                          "ul",
-                          { staticClass: "msg-box" },
-                          _vm._l(message, function(msg) {
-                            return _c(
-                              "li",
-                              { key: msg.id, staticClass: "msg-setting-main" },
-                              [
-                                _c("h5", {
-                                  domProps: { textContent: _vm._s(msg.message) }
-                                }),
-                                _vm._v(" "),
-                                _vm._m(3, true)
-                              ]
-                            )
-                          }),
-                          0
-                        )
+                        _c("ul", { staticClass: "msg-box" }, [
+                          _c("li", { staticClass: "msg-setting-main" }, [
+                            _c("h5", {
+                              domProps: { textContent: _vm._s(message.message) }
+                            }),
+                            _vm._v(" "),
+                            _vm._m(3, true)
+                          ])
+                        ])
                       ])
                     ])
                   ])
@@ -83738,8 +83629,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\laragon\www\vestraverto\resources\js\app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! C:\laragon\www\vestraverto\resources\sass\app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! E:\laragon\www\vestraverto\resources\js\app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! E:\laragon\www\vestraverto\resources\sass\app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

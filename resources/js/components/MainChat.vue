@@ -95,8 +95,8 @@
                 <ul class="chatappend">
                     <li
                         :class="{
-                            sent: messageIndex.split('_')[1] != user.id,
-                            replies: messageIndex.split('_')[1] == user.id
+                            sent: message.user_id != user.id,
+                            replies: message.user_id == user.id
                         }"
                         v-for="(message, messageIndex) in messages"
                         :key="messageIndex"
@@ -105,27 +105,19 @@
                             <div class="profile mr-4">
                                 <avatar
                                     v-if="messageIndex"
-                                    :username="messageIndex.split('_')[2]"
+                                    :username="message.user.name"
                                     :size="60"
                                 ></avatar>
                             </div>
                             <div class="media-body">
                                 <div class="contact-name">
-                                    <h5
-                                        v-text="messageIndex.split('_')[2]"
-                                    ></h5>
+                                    <h5 v-text="message.user.name"></h5>
                                     <h6
-                                        v-text="
-                                            newDate(messageIndex.split('_')[0])
-                                        "
+                                        v-text="newDate(message.created_at)"
                                     ></h6>
                                     <ul class="msg-box">
-                                        <li
-                                            class="msg-setting-main"
-                                            v-for="msg in message"
-                                            :key="msg.id"
-                                        >
-                                            <h5 v-text="msg.message"></h5>
+                                        <li class="msg-setting-main">
+                                            <h5 v-text="message.message"></h5>
                                             <div class="msg-dropdown-main">
                                                 <div class="msg-setting">
                                                     <i class="ti-more-alt"></i>
@@ -376,18 +368,11 @@ export default {
                 message: this.message,
                 group_id: this.group.id
             });
-            let message = data.message;
+            let messageData = JSON.stringify(data);
+            console.log(data.data);
+            // console.log(messageData);
+            this.messages.push(data.data);
 
-            let unix = moment(message.created_at).unix();
-            this.messages[
-                moment(unix * 1000).format() +
-                    "_" +
-                    message.user_id +
-                    //this.user.id +
-                    "_" +
-                    message.user.name
-                // this.user.name
-            ] = [message];
             $(".messages").animate({ scrollTop: $(document).height() }, "fast");
             this.message = null;
 
@@ -407,105 +392,11 @@ export default {
                     "fast"
                 );
 
-                const formatDate = date => moment(date).format();
-                const messages = data.messages.data;
-                const firstMsg = messages[0];
-                const newMessages = messages.slice(1).reduce(
-                    (acc, m) => {
-                        let lastMessages = acc[acc.length - 1];
-                        let lastMsg = lastMessages[lastMessages.length - 1];
-                        if (lastMsg.user_id === m.user_id) {
-                            lastMessages.push(m);
-                            acc[acc.length - 1] = lastMessages;
-                        } else {
-                            acc.push([m]);
-                        }
-                        return acc;
-                    },
-                    [[firstMsg]]
-                );
-
-                const groups = newMessages.reduce((acc, m) => {
-                    const message = m[m.length - 1];
-                    let unix = moment(message.created_at).unix();
-                    acc[
-                        moment(unix * 1000).format() +
-                            "_" +
-                            message.user_id +
-                            "_" +
-                            message.user.name
-                    ] = m;
-                    return acc;
-                }, {});
-
-                this.messages = groups;
+                this.messages = data.messages.data;
             }
-
-            // this.channel = window.pusher.subscribe(
-            //     `presence-${this.group.uuid}`
-            // );
-
-            // this.channel.bind("pusher:subscription_succeeded", members => {
-            //     console.log(members);
-            // });
-
-            // this.channel.bind("pusher:member_added", member => {
-            //     // console.log(member);
-            // });
-
-            // this.channel.bind("pusher:member_removed", member => {
-            //     // console.log(member);
-            // });
-
-            // this.channel.bind("new.message", ({ data }) => {
-            //     if (data.message.user_id !== this.user.id) {
-            //         let message = data.message;
-            //         let unix = moment(message.created_at).unix();
-            //         this.messages[
-            //             moment(unix * 1000).format() +
-            //                 "_" +
-            //                 message.user_id +
-            //                 "_" +
-            //                 message.user.name
-            //         ] = [message];
-            //         // this.messages.push(data.message);
-            //         $(".messages").animate(
-            //             { scrollTop: $(document).height() },
-            //             "fast"
-            //         );
-            //     }
-            // });
         }
-        // listenForNewMessage() {
-        //     window.Echo.private(`group.${this.group.uuid}`).listen(
-        //         "MessageProcessed",
-        //         data => {
-        //             console.log("test");
-
-        //             if (data.message.user_id !== this.user.id) {
-        //                 let message = data.message;
-        //                 let unix = moment(message.created_at).unix();
-        //                 this.messages[
-        //                     moment(unix * 1000).format() +
-        //                         "_" +
-        //                         message.user_id +
-        //                         "_" +
-        //                         message.user.name
-        //                 ] = [message];
-        //                 // this.messages.push(data.message);
-        //                 $(".messages").animate(
-        //                     { scrollTop: $("document").height() },
-        //                     "fast"
-        //                 );
-        //             }
-        //         }
-        //     );
-        // }
     },
-    // beforeRouteUpdate(to, from, next) {
-    //     this.channel.unbind("new.message");
-    //     next();
-    // },
+
     mounted() {
         this.loadGroupMessages();
 
@@ -523,27 +414,18 @@ export default {
             })
             .listen(
                 //  "MessageProcessed",
-                "App\\Events\\MessageProcessed",
-                //".new-message",
-                function(data) {
-                    console.log("abcdahahaha");
+                // "App\\Events\\MessageProcessed",
+                ".new-message",
+                data => {
+                    // console.log(data.message);
+                    console.log(this.messages);
 
-                    if (data.message.user_id !== this.user.id) {
-                        let message = data.message;
-                        let unix = moment(message.created_at).unix();
-                        this.messages[
-                            moment(unix * 1000).format() +
-                                "_" +
-                                message.user_id +
-                                "_" +
-                                message.user.name
-                        ] = [message];
-                        // this.messages.push(data.message);
-                        $(".messages").animate(
-                            { scrollTop: $("document").height() },
-                            "fast"
-                        );
-                    }
+                    this.messages.push(data.message);
+
+                    $(".messages").animate(
+                        { scrollTop: $("document").height() },
+                        "fast"
+                    );
                 }
             );
 
